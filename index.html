@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ComptCare | Your Trusted IT Solutions Partner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0056b3;
+      --secondary: #003366;
+      --accent: #ffc107;
+      --light-bg: rgba(249, 249, 249, 0.9);
+      --text: #212529;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-image: url('it-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--light-bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 120px;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    nav {
+      background: var(--secondary);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 15px 30px;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 60px 20px;
+      background: var(--light-bg);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    section h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #home p,
+    #about p,
+    #motive p,
+    #mission p,
+    #founder p {
+      max-width: 850px;
+      margin: 0 auto 1rem auto;
+      font-size: 1.1rem;
+      color: #222;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .home-btn:hover {
+      background: var(--secondary);
+    }
+
+    ul.services-list {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    ul.services-list li {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 6px solid var(--primary);
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    ul.services-list li span.emoji {
+      font-size: 1.6rem;
+    }
+
+    /* Submenu styles */
+    .services-list li.has-submenu {
+      flex-direction: column;
+      align-items: flex-start;
+      cursor: default;
+      padding: 15px 20px 10px 20px;
+    }
+
+    .services-list button.submenu-toggle {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      padding-left: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .services-list button.submenu-toggle:hover {
+      color: var(--secondary);
+    }
+
+    .services-list ul.submenu {
+      list-style: disc inside;
+      margin-top: 10px;
+      margin-left: 28px;
+      padding-left: 0;
+      color: #333;
+      width: 100%;
+    }
+
+    .services-list ul.submenu li {
+      background: transparent;
+      border-left: none;
+      box-shadow: none;
+      padding: 5px 0;
+      font-weight: normal;
+      display: block;
+      gap: 0;
+    }
+
+    #testimonials {
+      background: #f0f4f8;
+      padding: 60px 20px;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: 60px auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      color: #444;
+    }
+
+    #testimonials blockquote {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    #testimonials blockquote::before {
+      content: "“";
+      font-size: 3rem;
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-weight: bold;
+    }
+
+    #testimonials p {
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: var(--secondary);
+      text-align: right;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 35px;
+      border-radius: 6px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      color: var(--text);
+    }
+
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    form button {
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: var(--secondary);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="ComptCare Logo" />
+    <h1>ComptCare</h1>
+    <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#mission">Mission</a>
+    <a href="#motive">Motive</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <p>👋 Welcome to <strong>ComptCare</strong>! Where your IT challenges meet expert solutions tailored for your business success. Let's innovate together! 💻🚀</p>
+    <a href="#contact" class="home-btn">Get Support</a>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul class="services-list">
+      <li class="has-submenu">
+        <span class="emoji">🛠️</span>
+        <button class="submenu-toggle" aria-expanded="false">Managed IT Services ▾</button>
+        <ul class="submenu" hidden>
+          <li>24/7 Monitoring</li>
+          <li>Software Updates & Patch Management</li>
+          <li>Hardware Installation & Support</li>
+          <li>IT Strategy Consulting</li>
+        </ul>
+      </li>
+      <li><span class="emoji">🔐</span> Network Design & Security</li>
+      <li><span class="emoji">☁️</span> Cloud Solutions & Migration</li>
+      <li><span class="emoji">💾</span> Data Backup & Recovery</li>
+      <li><span class="emoji">🎧</span> Helpdesk Support & Consulting</li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>About ComptCare</h2>
+    <p>Founded by Maharshi Shah in 2025, ComptCare has been dedicated to delivering professional IT support and consulting services. Our team combines deep industry expertise with a customer-first approach to help your business thrive in an ever-evolving digital landscape.</p>
+  </section>
+
+  <section id="mission">
+    <h2>Our Mission</h2>
+    <p>Our mission is to empower businesses by providing innovative, reliable, and tailored IT solutions that drive efficiency and foster growth. We strive to be your trusted partner in navigating the complexities of technology with confidence and ease.</p>
+  </section>
+
+  <section id="motive">
+    <h2>Our Motive</h2>
+    <p>At ComptCare, our motive is to provide reliable, efficient, and proactive IT support that empowers businesses to focus on what they do best — growing and innovating. We eliminate technical worries by delivering seamless solutions and ongoing assistance with integrity and professionalism.</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <blockquote> ComptCare helped us set up a secure office network quickly and professionally. They truly care about their clients.</blockquote>
+    <p>- Priya Mehta</p>
+
+    <blockquote>Reliable, responsive, and affordable. Maharshi and his team are our go-to IT partners.</blockquote>
+    <p>- Raj Patel</p>
+
+    <blockquote>Outstanding support! Fixed my laptop faster than expected.</blockquote>
+    <p>- Anjali Desai</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      📞 <a href="tel:+919624839901">+91 9624839901</a> |
+      📧 <a href="mailto:comptcare0@gmail.com">comptcare0@gmail.com</a>
+    </div>
+
+    <form action="https://formspree.io/f/xvgrblga" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ComptCare. All rights reserved. | Designed by ComptCare</p>
+  </footer>
+
+  <script>
+    // Toggle submenu on clicking "Managed IT Services"
+    document.querySelectorAll('.submenu-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const submenu = button.nextElementSibling;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        button.setAttribute('aria-expanded', !isExpanded);
+        if (submenu) {
+          submenu.hidden = isExpanded; // toggle hidden attribute
+        }
+      });
+    });
+  </script>
+</body>
+</html>
