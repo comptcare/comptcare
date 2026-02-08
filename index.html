@@ -82,7 +82,7 @@ footer{
   bottom:85px;
   right:20px;
   width:320px;
-  height:420px;
+  height:440px;
   background:#fff;
   border-radius:12px;
   box-shadow:0 10px 25px rgba(0,0,0,.3);
@@ -116,7 +116,7 @@ footer{
 }
 
 .user-msg{text-align:right;color:var(--primary);margin:6px 0}
-.bot-msg{text-align:left;color:green;margin:6px 0}
+.bot-msg{text-align:left;color:#198754;margin:6px 0}
 .typing{font-style:italic;color:#888;margin:6px 0}
 
 .chat-input{
@@ -178,7 +178,7 @@ footer{
   </div>
   <div id="chat-messages"></div>
   <div class="chat-input">
-    <input id="chat-input" placeholder="Ask something...">
+    <input id="chat-input" placeholder="Describe your problem...">
     <button onclick="sendMsg()">Send</button>
   </div>
 </div>
@@ -190,48 +190,61 @@ const input = document.getElementById("chat-input");
 const msg = document.getElementById("chat-messages");
 
 let welcomed = false;
+let problemStage = 0;
 
 toggle.onclick = () => {
   chatbox.style.display = "flex";
   if(!welcomed){
-    setTimeout(()=>{
-      msg.innerHTML += `<div class="bot-msg">
-      👋 Hello! Welcome to <b>ComptCare</b><br>
-      Ask me about services, contact, pricing or support.
-      </div>`;
-      welcomed = true;
-    },300);
+    addBot("👋 Hello! I’m ComptCare AI.<br>What problem are you facing today?");
+    welcomed = true;
   }
 };
 
-function sendMsg(){
-  const text = input.value.trim();
-  if(!text) return;
-
-  msg.innerHTML += `<div class="user-msg">${text}</div>`;
-  input.value = "";
-
+function addBot(text){
   const typing = document.createElement("div");
   typing.className = "typing";
   typing.innerText = "AI is typing...";
   msg.appendChild(typing);
   msg.scrollTop = msg.scrollHeight;
 
-  const q = text.toLowerCase();
-
   setTimeout(()=>{
     typing.remove();
-
-    let reply = "🤖 Thanks for contacting ComptCare!";
-
-    if(q.includes("service")) reply="🛠️ We offer IT support, cloud solutions, security & helpdesk.";
-    else if(q.includes("contact")||q.includes("phone")) reply="📞 +91 9624839901 | 📧 comptcare0@gmail.com";
-    else if(q.includes("price")||q.includes("cost")) reply="💰 Pricing depends on your requirements.";
-    else if(q.includes("hello")||q.includes("hi")) reply="👋 Hello! How can I help you today?";
-
-    msg.innerHTML += `<div class="bot-msg">${reply}</div>`;
+    msg.innerHTML += `<div class="bot-msg">${text}</div>`;
     msg.scrollTop = msg.scrollHeight;
-  },1200);
+  },1000);
+}
+
+function sendMsg(){
+  const text = input.value.trim();
+  if(!text) return;
+
+  msg.innerHTML += `<div class="user-msg">${text}</div>`;
+  input.value="";
+  msg.scrollTop = msg.scrollHeight;
+
+  const q = text.toLowerCase();
+
+  if(problemStage === 0){
+    if(q.includes("internet") || q.includes("network")){
+      addBot("🔐 Is this a home network or office network?");
+      problemStage = 1;
+    }
+    else if(q.includes("laptop") || q.includes("computer")){
+      addBot("💻 Is your device slow, not turning on, or showing an error?");
+      problemStage = 1;
+    }
+    else if(q.includes("cloud") || q.includes("server")){
+      addBot("☁️ Are you facing login issues, data loss, or performance problems?");
+      problemStage = 1;
+    }
+    else{
+      addBot("🛠️ Got it. Can you please explain the issue in a little more detail?");
+    }
+  }
+  else{
+    addBot("✅ Thank you for the details. Our support team can assist you further.<br><br>📞 +91 9624839901<br>📧 comptcare0@gmail.com");
+    problemStage = 0;
+  }
 }
 
 input.addEventListener("keydown",e=>{
