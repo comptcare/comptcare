@@ -817,18 +817,50 @@ footer{
 </div>
 
 <style>
-<!-- FREE AI CHATBOT -->
-<div id="free-ai">
-  <div id="free-ai-header">💬 ComptCare Support</div>
-  <div id="free-ai-msg"></div>
-  <input id="free-ai-input" placeholder="Ask about services, contact..." />
+<!-- FREE CHAT SUPPORT BOX -->
+<div id="chat-toggle">💬</div>
+
+<div id="chatbox" class="hidden">
+  <div id="chat-header">
+    <span>💬 ComptCare Support</span>
+    <div>
+      <button id="minimize">—</button>
+      <button id="close">✕</button>
+    </div>
+  </div>
+
+  <div id="chat-messages"></div>
+
+  <input
+    type="text"
+    id="chat-input"
+    placeholder="Ask about services, contact, pricing..."
+  />
 </div>
 
 <style>
-#free-ai{
-  all: unset;
+/* Toggle Button */
+#chat-toggle{
   position:fixed;
   bottom:20px;
+  right:20px;
+  background:#0056b3;
+  color:#fff;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  z-index:9999;
+}
+
+/* Chatbox */
+#chatbox{
+  position:fixed;
+  bottom:90px;
   right:20px;
   width:300px;
   height:380px;
@@ -840,22 +872,49 @@ footer{
   z-index:9999;
   font-family:Roboto, sans-serif;
 }
-#free-ai-header{
+
+/* Hidden */
+.hidden{display:none;}
+
+/* Header */
+#chat-header{
   background:#0056b3;
   color:#fff;
   padding:10px;
-  text-align:center;
-  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:12px 12px 0 0;
 }
-#free-ai-msg{
+#chat-header button{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  margin-left:5px;
+}
+
+/* Messages */
+#chat-messages{
   flex:1;
   padding:10px;
   overflow-y:auto;
   font-size:14px;
 }
-.free-user{color:#0056b3;text-align:right;margin:5px}
-.free-bot{color:#198754;text-align:left;margin:5px}
-#free-ai-input{
+.user{
+  text-align:right;
+  color:#0056b3;
+  margin:6px 0;
+}
+.bot{
+  text-align:left;
+  color:#198754;
+  margin:6px 0;
+}
+
+/* Input */
+#chat-input{
   border:none;
   border-top:1px solid #ddd;
   padding:10px;
@@ -864,34 +923,42 @@ footer{
 </style>
 
 <script>
-const input = document.getElementById("free-ai-input");
-const box = document.getElementById("free-ai-msg");
+const toggle = document.getElementById("chat-toggle");
+const chatbox = document.getElementById("chatbox");
+const closeBtn = document.getElementById("close");
+const minBtn = document.getElementById("minimize");
+const input = document.getElementById("chat-input");
+const messages = document.getElementById("chat-messages");
 
-function reply(msg){
-  box.innerHTML += `<div class="free-bot">${msg}</div>`;
-  box.scrollTop = box.scrollHeight;
+toggle.onclick = () => chatbox.classList.remove("hidden");
+closeBtn.onclick = () => chatbox.classList.add("hidden");
+minBtn.onclick = () => chatbox.classList.add("hidden");
+
+function botReply(text){
+  messages.innerHTML += `<div class="bot">${text}</div>`;
+  messages.scrollTop = messages.scrollHeight;
 }
 
 input.addEventListener("keypress", function(e){
   if(e.key==="Enter" && input.value.trim()){
     let q = input.value.toLowerCase();
-    box.innerHTML += `<div class="free-user">${input.value}</div>`;
+    messages.innerHTML += `<div class="user">${input.value}</div>`;
     input.value="";
 
     if(q.includes("service")){
-      reply("🛠️ We provide IT support, networking, cloud, security & helpdesk services.");
+      botReply("🛠️ We provide IT support, networking, cloud solutions & security.");
     }
     else if(q.includes("contact") || q.includes("phone")){
-      reply("📞 Call us: +91 9624839901<br>📧 Email: comptcare0@gmail.com");
+      botReply("📞 +91 9624839901<br>📧 comptcare0@gmail.com");
     }
     else if(q.includes("about")){
-      reply("ℹ️ ComptCare is founded by Maharshi Shah, providing trusted IT solutions.");
+      botReply("ℹ️ ComptCare is founded by Maharshi Shah, delivering trusted IT solutions.");
     }
     else if(q.includes("price") || q.includes("cost")){
-      reply("💰 Pricing depends on your requirement. Please contact us for details.");
+      botReply("💰 Pricing depends on your requirements. Please contact us.");
     }
     else{
-      reply("🤖 Thank you! Please use the contact form or call us directly.");
+      botReply("🤖 Thank you! Please contact us for more details.");
     }
   }
 });
