@@ -3,13 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ComptCare Chatbot</title>
+<title>ComptCare | IT Solutions</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#f4f6f8;
+:root{
+  --primary:#0056b3;
+  --secondary:#003366;
+  --accent:#ffc107;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f6f8;color:#212529}
+
+/* HEADER */
+header{
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+}
+header h1{font-size:2.4rem}
+
+/* NAV */
+nav{
+  background:var(--secondary);
+  display:flex;
+  justify-content:center;
+  padding:12px;
+}
+nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+
+/* SECTION */
+section{
+  max-width:1100px;
+  margin:40px auto;
+  padding:40px 20px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+section h2{text-align:center;color:var(--primary);margin-bottom:20px}
+section p{text-align:center;font-size:1.1rem}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
 }
 
 /* CHAT BUTTON */
@@ -19,15 +61,15 @@ body{
   right:20px;
   width:55px;
   height:55px;
-  border-radius:50%;
-  background:#0056b3;
+  background:var(--primary);
   color:#fff;
   font-size:26px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  z-index:999;
+  z-index:9999;
 }
 
 /* CHAT BOX */
@@ -42,21 +84,26 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,.3);
   display:none;
   flex-direction:column;
-  z-index:999;
+  z-index:9999;
 }
 
-/* HEADER */
 .chat-header{
-  background:#0056b3;
+  background:var(--primary);
   color:#fff;
   padding:10px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-weight:bold;
 }
 
-/* MESSAGES */
+.chat-header button{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
 #chat-messages{
   flex:1;
   padding:10px;
@@ -66,14 +113,14 @@ body{
 
 .user-msg{
   text-align:right;
+  color:var(--primary);
   margin:6px 0;
-  color:#0056b3;
 }
 
 .bot-msg{
   text-align:left;
-  margin:6px 0;
   color:green;
+  margin:6px 0;
 }
 
 .typing{
@@ -82,7 +129,6 @@ body{
   margin:6px 0;
 }
 
-/* INPUT */
 .chat-input{
   display:flex;
   border-top:1px solid #ddd;
@@ -96,7 +142,7 @@ body{
 }
 
 .chat-input button{
-  background:#0056b3;
+  background:var(--primary);
   color:#fff;
   border:none;
   padding:0 15px;
@@ -107,19 +153,41 @@ body{
 
 <body>
 
-<!-- CHAT UI -->
+<header>
+  <h1>ComptCare</h1>
+  <p>Your Trusted IT Support Partner</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <p>👋 Welcome to <strong>ComptCare</strong> — reliable IT solutions for your business.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 +91 9624839901 | 📧 comptcare0@gmail.com</p>
+</section>
+
+<footer>© 2025 ComptCare</footer>
+
+<!-- CHAT -->
 <div id="chat-toggle">💬</div>
 
 <div id="chatbox">
   <div class="chat-header">
     ComptCare AI
-    <button onclick="closeChat()" style="background:none;border:none;color:#fff;font-size:18px;">—</button>
+    <button onclick="closeChat()">—</button>
   </div>
 
   <div id="chat-messages"></div>
 
   <div class="chat-input">
-    <input id="chat-input" placeholder="Type your message...">
+    <input id="chat-input" placeholder="Type your message…">
     <button onclick="sendMsg()">Send</button>
   </div>
 </div>
@@ -130,14 +198,7 @@ const box = document.getElementById("chatbox");
 const input = document.getElementById("chat-input");
 const msg = document.getElementById("chat-messages");
 
-toggle.onclick = () => {
-  box.style.display = "flex";
-  if(msg.innerHTML === "") welcomeMsg();
-};
-
-function closeChat(){
-  box.style.display = "none";
-}
+let welcomed = false;
 
 /* TIME GREETING */
 function timeGreeting(){
@@ -148,14 +209,17 @@ function timeGreeting(){
   return "Good Night 🌌";
 }
 
-/* WELCOME MESSAGE */
-function welcomeMsg(){
-  msg.innerHTML += `
-  <div class="bot-msg">
-    ${timeGreeting()} 👋<br>
-    Welcome to <b>ComptCare</b>.<br>
-    Please describe your problem or type <b>contact</b>.
-  </div>`;
+/* OPEN CHAT */
+toggle.onclick = () => {
+  box.style.display = "flex";
+  if(!welcomed){
+    botReply(`${timeGreeting()} 👋<br>Welcome to <b>ComptCare</b>.<br>Please tell me your problem or type <b>contact</b>.`);
+    welcomed = true;
+  }
+};
+
+function closeChat(){
+  box.style.display = "none";
 }
 
 /* BOT REPLY */
@@ -186,17 +250,22 @@ function sendMsg(){
     if(q.includes("contact") || q.includes("call") || q.includes("phone")){
       botReply("📞 Phone: +91 9624839901<br>📧 Email: comptcare0@gmail.com");
     }
-    else if(q.includes("service")){
-      botReply("🛠️ We provide IT support, cloud solutions, security & helpdesk. What issue are you facing?");
+    else if(q.includes("service") || q.includes("support")){
+      botReply("🛠️ We provide IT support, cloud solutions, security & helpdesk services. What issue are you facing?");
     }
-    else if(q.includes("hello") || q.includes("hi")){
+    else if(q.includes("hi") || q.includes("hello")){
       botReply(timeGreeting() + " 😊 How can I help you?");
     }
     else{
-      botReply("🧠 Thank you for the details. Can you please explain your problem a little more?");
+      botReply("✅ Got it. Please explain your problem in a little more detail.");
     }
-  }, 1200);
+  }, 1000);
 }
+
+/* ENTER KEY */
+input.addEventListener("keydown", e => {
+  if(e.key === "Enter") sendMsg();
+});
 </script>
 
 </body>
