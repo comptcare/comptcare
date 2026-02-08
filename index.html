@@ -1,436 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ComptCare | Trusted IT Solutions</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --primary:#0056b3;
-  --secondary:#003366;
-  --accent:#ffc107;
-  --light-bg:rgba(249,249,249,.95);
-  --text:#212529;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif}
-body{
-  background:#000 url('it-background.jpg') center/cover fixed;
-  color:var(--text);
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:-1;
-}
-header{
-  background:linear-gradient(to right,var(--primary),var(--secondary));
-  color:#fff;
-  text-align:center;
-  padding:50px 20px;
-}
-header img{max-width:120px;margin-bottom:15px}
-nav{
-  background:var(--secondary);
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  padding:15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-nav a{color:#fff;text-decoration:none;font-weight:600}
-nav a:hover{color:var(--accent)}
-section{
-  max-width:1100px;
-  margin:60px auto;
-  background:var(--light-bg);
-  padding:60px 20px;
-  border-radius:12px;
-}
-section h2{text-align:center;color:var(--primary);margin-bottom:25px}
-.home-btn{
-  display:inline-block;
-  margin-top:20px;
-  background:var(--primary);
-  color:#fff;
-  padding:12px 25px;
-  border-radius:5px;
-  text-decoration:none;
-  font-weight:bold;
-}
-ul.services-list{list-style:none;max-width:700px;margin:auto}
-ul.services-list li{
-  background:#fff;
-  margin-bottom:15px;
-  padding:20px;
-  border-left:6px solid var(--primary);
-  border-radius:6px;
-}
-footer{
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-}
-
-/* ===== CHATBOT STYLE ===== */
-#free-ai{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:300px;
-  height:380px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
-  display:flex;
-  flex-direction:column;
-  z-index:9999;
-}
-#free-ai-header{
-  background:#0056b3;
-  color:#fff;
-  padding:10px;
-  text-align:center;
-  font-weight:bold;
-}
-#free-ai-msg{
-  flex:1;
-  padding:10px;
-  overflow-y:auto;
-  font-size:14px;
-}
-.free-user{text-align:right;color:#0056b3;margin:5px}
-.free-bot{text-align:left;color:#198754;margin:5px}
-#free-ai-input{
-  border:none;
-  border-top:1px solid #ddd;
-  padding:10px;
-  outline:none;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <img src="logo.jpg" alt="ComptCare Logo">
-  <h1>ComptCare</h1>
-  <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="home" style="text-align:center">
-  <p>👋 Welcome to <strong>ComptCare</strong> — Professional IT Solutions.</p>
-  <a href="#contact" class="home-btn">Get Support</a>
-</section>
-
-<section id="services">
-<h2>Our Services</h2>
-<ul class="services-list">
-  <li>🛠️ Managed IT Services</li>
-  <li>🔐 Network Security</li>
-  <li>☁️ Cloud Solutions</li>
-  <li>💾 Data Backup & Recovery</li>
-  <li>🎧 Helpdesk Support</li>
-</ul>
-</section>
-
-<section id="about">
-<h2>About Us</h2>
-<p>ComptCare provides reliable IT services with a customer-first approach.</p>
-</section>
-
-<section id="contact">
-<h2>Contact Us</h2>
-<p style="text-align:center">
-📞 <a href="tel:+919624839901">+91 9624839901</a><br>
-📧 <a href="mailto:comptcare0@gmail.com">comptcare0@gmail.com</a>
-</p>
-</section>
-
-<footer>
-<p>© 2025 ComptCare. All rights reserved.</p>
-</footer>
-
-<!-- ===== FREE CHATBOT ===== -->
-<div id="free-ai">
-  <div id="free-ai-header">💬 ComptCare Support</div>
-  <div id="free-ai-msg"></div>
-  <input id="free-ai-input" placeholder="Ask about services, contact...">
-</div>
-
-<script>
-const input=document.getElementById("free-ai-input");
-const box=document.getElementById("free-ai-msg");
-
-function reply(msg){
-  setTimeout(()=>{
-    box.innerHTML+=`<div class="free-bot">${msg}</div>`;
-    box.scrollTop=box.scrollHeight;
-  },400);
-}
-
-reply("👋 Hi! Welcome to ComptCare. How can I help you?");
-
-input.addEventListener("keypress",e=>{
-  if(e.key==="Enter" && input.value.trim()){
-    let q=input.value.toLowerCase();
-    box.innerHTML+=`<div class="free-user">${input.value}</div>`;
-    input.value="";
-    if(q.includes("service")) reply("🛠️ We offer IT support, networking, cloud & security.");
-    else if(q.includes("contact")||q.includes("phone")) reply("📞 +91 9624839901<br>📧 comptcare0@gmail.com");
-    else if(q.includes("about")) reply("ℹ️ ComptCare provides trusted IT solutions.");
-    else reply("🤖 Thank you! Please contact us for more help.");
-  }
-});
-</script>
-
-</body>
-</html>ul.services-list li{
-  background:#fff;
-  margin-bottom:15px;
-  padding:20px;
-  border-left:6px solid var(--primary);
-  border-radius:6px;
-}
-footer{
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <img src="logo.jpg" alt="ComptCare Logo">
-  <h1>ComptCare</h1>
-  <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="home" style="text-align:center">
-  <p>👋 Welcome to <strong>ComptCare</strong> — Professional IT Solutions for your business.</p>
-  <a href="#contact" class="home-btn">Get Support</a>
-</section>
-
-<section id="services">
-<h2>Our Services</h2>
-<ul class="services-list">
-  <li>🛠️ Managed IT Services</li>
-  <li>🔐 Network Security</li>
-  <li>☁️ Cloud Solutions</li>
-  <li>💾 Data Backup & Recovery</li>
-  <li>🎧 Helpdesk Support</li>
-</ul>
-</section>
-
-<section id="about">
-<h2>About Us</h2>
-<p>ComptCare provides reliable IT services with a customer-first approach.</p>
-</section>
-
-<section id="contact">
-<h2>Contact Us</h2>
-<p style="text-align:center">
-📞 <a href="tel:+919624839901">+91 9624839901</a><br>
-📧 <a href="mailto:comptcare0@gmail.com">comptcare0@gmail.com</a>
-</p>
-</section>
-
-<footer>
-<p>© 2025 ComptCare. All rights reserved.</p>
-</footer>
-
-<!-- ================= FREE CHATBOT ================= -->
-<div id="free-ai">
-  <div id="free-ai-header">💬 ComptCare Support</div>
-  <div id="free-ai-msg"></div>
-  <input id="free-ai-input" placeholder="Ask about services, contact...">
-</div>
-
-<style>
-#free-ai{
-  all:unset;
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:300px;
-  height:380px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
-  display:flex;
-  flex-direction:column;
-  z-index:9999;
-}
-#free-ai-header{
-  background:#0056b3;
-  color:#fff;
-  padding:10px;
-  text-align:center;
-  font-weight:bold;
-}
-#free-ai-msg{
-  flex:1;
-  padding:10px;
-  overflow-y:auto;
-  font-size:14px;
-}
-.free-user{text-align:right;color:#0056b3;margin:5px}
-.free-bot{text-align:left;color:#198754;margin:5px}
-#free-ai-input{
-  border:none;
-  border-top:1px solid #ddd;
-  padding:10px;
-  outline:none;
-}
-</style>
-
-<script>
-const input=document.getElementById("free-ai-input");
-const box=document.getElementById("free-ai-msg");
-
-function reply(msg){
-  box.innerHTML+=`<div class="free-bot">${msg}</div>`;
-  box.scrollTop=box.scrollHeight;
-}
-
-input.addEventListener("keypress",e=>{
-  if(e.key==="Enter" && input.value.trim()){
-    let q=input.value.toLowerCase();
-    box.innerHTML+=`<div class="free-user">${input.value}</div>`;
-    input.value="";
-    if(q.includes("service")) reply("We offer IT support, networking, cloud & security.");
-    else if(q.includes("contact")) reply("📞 +91 9624839901<br>📧 comptcare0@gmail.com");
-    else if(q.includes("about")) reply("ComptCare provides trusted IT solutions.");
-    else reply("Thanks! Please contact us for more help.");
-  }
-});
-</script>
-
-</body>
-</html>    header p {
-      font-size: 1.1rem;
-      margin-top: 5px;
-    }
-
-    nav {
-      background: var(--secondary);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 15px 30px;
-      gap: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 60px 20px;
-      background: var(--light-bg);
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 1;
-    }
-
-    section h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    #home p,
-    #about p,
-    #motive p,
-    #mission p,
-    #founder p {
-      max-width: 850px;
-      margin: 0 auto 1rem auto;
-      font-size: 1.1rem;
-      color: #222;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .home-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-      cursor: pointer;
-    }
-
-    .home-btn:hover {
-      background: var(--secondary);
-    }
-
-    ul.services-list {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    ul.services-list li {
-      background: white;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-left: 6px solid var(--primary);
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    ul.services-list li span.emoji {
+-list li span.emoji {
       font-size: 1.6rem;
     }
 
@@ -791,3 +359,195 @@ input.addEventListener("keypress", function(e){
 </script>
 
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComptCare | Trusted IT Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0056b3;
+  --secondary:#003366;
+  --accent:#ffc107;
+  --light-bg:rgba(249,249,249,.95);
+  --text:#212529;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif}
+body{
+  background:#000 url('it-background.jpg') center/cover fixed;
+  color:var(--text);
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:-1;
+}
+header{
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  color:#fff;
+  text-align:center;
+  padding:50px 20px;
+}
+header img{max-width:120px;margin-bottom:15px}
+nav{
+  background:var(--secondary);
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  padding:15px;
+  position:sticky;
+  top:0;
+}
+nav a{color:#fff;text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+section{
+  max-width:1100px;
+  margin:60px auto;
+  background:var(--light-bg);
+  padding:60px 20px;
+  border-radius:12px;
+}
+section h2{text-align:center;color:var(--primary);margin-bottom:25px}
+ul.services-list{list-style:none;max-width:700px;margin:auto}
+ul.services-list li{
+  background:#fff;
+  margin-bottom:15px;
+  padding:20px;
+  border-left:6px solid var(--primary);
+  border-radius:6px;
+}
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* ===== CHAT BUTTON ===== */
+#chat-toggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  cursor:pointer;
+  z-index:9999;
+}
+
+/* ===== CHATBOX ===== */
+#free-ai{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:300px;
+  height:380px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  display:none;
+  flex-direction:column;
+  z-index:9999;
+}
+#free-ai-header{
+  background:var(--primary);
+  color:#fff;
+  padding:10px;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+#free-ai-msg{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+  font-size:14px;
+}
+.free-user{text-align:right;color:var(--primary);margin:6px}
+.free-bot{text-align:left;color:#198754;margin:6px}
+#free-ai-input{
+  border:none;
+  border-top:1px solid #ddd;
+  padding:10px;
+  outline:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.jpg" alt="ComptCare Logo">
+  <h1>ComptCare</h1>
+  <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <p style="text-align:center">👋 Welcome to <b>ComptCare</b> — Professional IT Solutions.</p>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<ul class="services-list">
+  <li>🛠️ Managed IT Services</li>
+  <li>🔐 Network Security</li>
+  <li>☁️ Cloud Solutions</li>
+  <li>💾 Data Backup</li>
+  <li>🎧 Helpdesk Support</li>
+</ul>
+</section>
+
+<section id="about">
+<h2>About Us</h2>
+<p style="text-align:center">Reliable IT services with customer-first approach.</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p style="text-align:center">
+📞 +91 9624839901<br>
+📧 comptcare0@gmail.com
+</p>
+</section>
+
+<footer>
+<p>© 2025 ComptCare</p>
+</footer>
+
+<!-- CHAT UI -->
+<div id="chat-toggle" onclick="openChat()">💬</div>
+
+<div id="free-ai">
+  <div id="free-ai-header">
+    ComptCare Support
+    <span onclick="closeChat()">✖</span>
+  </div>
+  <div id="free-ai-msg"></div>
+  <input id="free-ai-input" placeholder="Ask about services, contact...">
+</div>
+
+<!-- CONNECT JS -->
+<script src="chatbox.js"></script>
+
+</body>
+</html>
