@@ -1,4 +1,5 @@
-<!DOCTYPE html>  <html lang="en">  
+<!DOCTYPE html>  
+<html lang="en">  
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
@@ -165,7 +166,6 @@ ul.services-list li span.emoji {
   font-size: 1.6rem;  
 }  
 
-/* Submenu styles */  
 .services-list li.has-submenu {  
   flex-direction: column;  
   align-items: flex-start;  
@@ -251,58 +251,6 @@ ul.services-list li span.emoji {
   margin-right: auto;  
 }  
 
-form {  
-  max-width: 600px;  
-  margin: 0 auto;  
-  background: white;  
-  padding: 35px;  
-  border-radius: 6px;  
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);  
-  color: var(--text);  
-}  
-
-form label {  
-  display: block;  
-  font-weight: 600;  
-  margin-bottom: 6px;  
-  font-size: 1rem;  
-}  
-
-form input[type="text"],  
-form input[type="email"],  
-form textarea {  
-  width: 100%;  
-  padding: 12px;  
-  margin-bottom: 20px;  
-  border-radius: 5px;  
-  border: 1px solid #ccc;  
-  font-size: 1rem;  
-  resize: vertical;  
-  font-family: 'Roboto', sans-serif;  
-}  
-
-form input:focus,  
-form textarea:focus {  
-  border-color: var(--primary);  
-  outline: none;  
-}  
-
-form button {  
-  background: var(--primary);  
-  border: none;  
-  color: white;  
-  font-weight: 700;  
-  padding: 12px 25px;  
-  border-radius: 5px;  
-  cursor: pointer;  
-  font-size: 1rem;  
-  transition: background 0.3s ease;  
-}  
-
-form button:hover {  
-  background: var(--secondary);  
-}  
-
 footer {  
   background: #111;  
   color: white;  
@@ -319,95 +267,138 @@ footer a {
 
 footer a:hover {  
   text-decoration: underline;  
-}
-
+}  
   </style>  
 </head>  
-<body>    <header>  
-    <img src="logo.jpg" alt="ComptCare Logo" />  
-    <h1>ComptCare</h1>  
-    <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>  
-  </header>    <nav>  
-    <a href="#home">Home</a>  
-    <a href="#services">Services</a>  
-    <a href="#about">About</a>  
-    <a href="#mission">Mission</a>  
-    <a href="#motive">Motive</a>  
-    <a href="#testimonials">Testimonials</a>  
-    <a href="#contact">Contact</a>  
-  </nav>    <section id="home">  
-    <p>👋 Welcome to <strong>ComptCare</strong>! Where your IT challenges meet expert solutions tailored for your business success. Let's innovate together! 💻🚀</p>  
-    <a href="#contact" class="home-btn">Get Support</a>  
-  </section>    <section id="services">  
-    <h2>Our Services</h2>  
-    <ul class="services-list">  
-      <li class="has-submenu">  
-        <span class="emoji">🛠️</span>  
-        <button class="submenu-toggle" aria-expanded="false">Managed IT Services ▾</button>  
-        <ul class="submenu" hidden>  
-          <li>24/7 Monitoring</li>  
-          <li>Software Updates & Patch Management</li>  
-          <li>Hardware Installation & Support</li>  
-          <li>IT Strategy Consulting</li>  
-        </ul>  
-      </li>  
-      <li><span class="emoji">🔐</span> Network Design & Security</li>  
-      <li><span class="emoji">☁️</span> Cloud Solutions & Migration</li>  
-      <li><span class="emoji">💾</span> Data Backup & Recovery</li>  
-      <li><span class="emoji">🎧</span> Helpdesk Support & Consulting</li>  
-    </ul>  
-  </section>    <section id="about">  
-    <h2>About ComptCare</h2>  
-    <p>Founded by Maharshi Shah in 2025, ComptCare has been dedicated to delivering professional IT support and consulting services. Our team combines deep industry expertise with a customer-first approach to help your business thrive in an ever-evolving digital landscape.</p>  
-  </section>    <section id="mission">  
-    <h2>Our Mission</h2>  
-    <p>Our mission is to empower businesses by providing innovative, reliable, and tailored IT solutions that drive efficiency and foster growth. We strive to be your trusted partner in navigating the complexities of technology with confidence and ease.</p>  
-  </section>    <section id="motive">  
-    <h2>Our Motive</h2>  
-    <p>At ComptCare, our motive is to provide reliable, efficient, and proactive IT support that empowers businesses to focus on what they do best — growing and innovating. We eliminate technical worries by delivering seamless solutions and ongoing assistance with integrity and professionalism.</p>  
-  </section>    <section id="testimonials">  
-    <h2>What Our Clients Say</h2>  
-    <blockquote> ComptCare helped us set up a secure office network quickly and professionally. They truly care about their clients.</blockquote>  
-    <p>- Priya Mehta</p>  <blockquote>Reliable, responsive, and affordable. Maharshi and his team are our go-to IT partners.</blockquote>  
-<p>- Raj Patel</p>  
 
-<blockquote>Outstanding support! Fixed my laptop faster than expected.</blockquote>  
-<p>- Anjali Desai</p>
+<body>  
 
-  </section>    <section id="contact">  
-    <h2>Contact Us</h2>  <div style="text-align: center; margin-bottom: 30px;">  
-  📞 <a href="tel:+919624839901">+91 9624839901</a> |  
-  📧 <a href="mailto:comptcare0@gmail.com">comptcare0@gmail.com</a>  
-</div>  
+<header>  
+  <img src="logo.jpg" alt="ComptCare Logo" />  
+  <h1>ComptCare</h1>  
+  <p>Your Trusted IT Support Partner — Founded by Maharshi Shah</p>  
+</header>  
 
-<form action="https://formspree.io/f/xvgrblga" method="POST">  
-  <label for="name">Name</label>  
-  <input type="text" id="name" name="name" placeholder="Your Name" required />  
+<nav>  
+  <a href="#home">Home</a>  
+  <a href="#services">Services</a>  
+  <a href="#about">About</a>  
+  <a href="#mission">Mission</a>  
+  <a href="#motive">Motive</a>  
+  <a href="#testimonials">Testimonials</a>  
+  <a href="#contact">Contact</a>  
+</nav>  
 
-  <label for="email">Email</label>  
-  <input type="email" id="email" name="email" placeholder="Your Email" required />  
+<section id="home">  
+  <p>👋 Welcome to <strong>ComptCare</strong>! Where your IT challenges meet expert solutions tailored for your business success. Let's innovate together! 💻🚀</p>  
+  <a href="#contact" class="home-btn">Get Support</a>  
+</section>  
 
-  <label for="message">Message</label>  
-  <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>  
+<section id="services">  
+  <h2>Our Services</h2>  
+  <ul class="services-list">  
+    <li class="has-submenu">  
+      <span class="emoji">🛠️</span>  
+      <button class="submenu-toggle" aria-expanded="false">Managed IT Services ▾</button>  
+      <ul class="submenu" hidden>  
+        <li>24/7 Monitoring</li>  
+        <li>Software Updates & Patch Management</li>  
+        <li>Hardware Installation & Support</li>  
+        <li>IT Strategy Consulting</li>  
+      </ul>  
+    </li>  
+    <li><span class="emoji">🔐</span> Network Design & Security</li>  
+    <li><span class="emoji">☁️</span> Cloud Solutions & Migration</li>  
+    <li><span class="emoji">💾</span> Data Backup & Recovery</li>  
+    <li><span class="emoji">🎧</span> Helpdesk Support & Consulting</li>  
+  </ul>  
+</section>  
 
-  <input type="text" name="_gotcha" style="display:none">  
-  <button type="submit">Send</button>  
-</form>
+<section id="about">  
+  <h2>About ComptCare</h2>  
+  <p>Founded by Maharshi Shah in 2025, ComptCare has been dedicated to delivering professional IT support and consulting services.</p>  
+</section>  
 
-  </section>    <footer>  
-    <p>&copy; 2025 ComptCare. All rights reserved. | Designed by ComptCare</p>  
-  </footer>    <script>  
-    // Toggle submenu on clicking "Managed IT Services"  
-    document.querySelectorAll('.submenu-toggle').forEach(button => {  
-      button.addEventListener('click', () => {  
-        const submenu = button.nextElementSibling;  
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';  
-  
-        button.setAttribute('aria-expanded', !isExpanded);  
-        if (submenu) {  
-          submenu.hidden = isExpanded; // toggle hidden attribute  
-        }  
-      });  
-    });  
-  </script>  </body>  
+<section id="mission">  
+  <h2>Our Mission</h2>  
+  <p>Our mission is to empower businesses by providing innovative, reliable, and tailored IT solutions.</p>  
+</section>  
+
+<section id="motive">  
+  <h2>Our Motive</h2>  
+  <p>At ComptCare, our motive is to provide reliable, efficient, and proactive IT support.</p>  
+</section>  
+
+<section id="testimonials">  
+  <h2>What Our Clients Say</h2>  
+  <blockquote>ComptCare helped us set up a secure office network quickly and professionally.</blockquote>  
+  <p>- Priya Mehta</p>  
+</section>  
+
+<section id="contact">  
+  <h2>Contact Us</h2>  
+  <div style="text-align:center;margin-bottom:30px;">  
+    📞 <a href="tel:+919624839901">+91 9624839901</a> |  
+    📧 <a href="mailto:comptcare0@gmail.com">comptcare0@gmail.com</a>  
+  </div>  
+</section>  
+
+<footer>  
+  <p>&copy; 2025 ComptCare. All rights reserved.</p>  
+</footer>  
+
+<!-- ================= AI CHATBOT (ADDED ONLY) ================= -->
+
+<style>
+#cc-chat-toggle{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#0056b3;color:#fff;font-size:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99999}
+#cc-chatbox{position:fixed;bottom:85px;right:20px;width:320px;height:420px;background:#fff;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.3);display:none;flex-direction:column;z-index:99999}
+.cc-chat-header{background:#0056b3;color:#fff;padding:10px;display:flex;justify-content:space-between;align-items:center}
+.cc-chat-header button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer}
+#cc-chat-messages{flex:1;padding:10px;overflow-y:auto;font-size:14px}
+.cc-user{text-align:right;color:#0056b3;margin:6px 0}
+.cc-bot{text-align:left;color:green;margin:6px 0}
+.cc-input{display:flex;border-top:1px solid #ddd}
+.cc-input input{flex:1;border:none;padding:10px;outline:none}
+.cc-input button{background:#0056b3;color:#fff;border:none;padding:0 15px;cursor:pointer}
+</style>
+
+<div id="cc-chat-toggle">💬</div>
+
+<div id="cc-chatbox">
+  <div class="cc-chat-header">
+    ComptCare AI
+    <button onclick="ccClose()">—</button>
+  </div>
+  <div id="cc-chat-messages"></div>
+  <div class="cc-input">
+    <input id="cc-input" placeholder="Type your message…">
+    <button onclick="ccSend()">Send</button>
+  </div>
+</div>
+
+<script>
+const ccToggle=document.getElementById("cc-chat-toggle");
+const ccBox=document.getElementById("cc-chatbox");
+const ccInput=document.getElementById("cc-input");
+const ccMsg=document.getElementById("cc-chat-messages");
+let ccWelcome=false;
+
+ccToggle.onclick=()=>{
+  ccBox.style.display="flex";
+  if(!ccWelcome){
+    ccMsg.innerHTML+=`<div class="cc-bot">👋 Welcome to ComptCare AI</div>`;
+    ccWelcome=true;
+  }
+};
+function ccClose(){ccBox.style.display="none";}
+function ccSend(){
+  const t=ccInput.value.trim();
+  if(!t)return;
+  ccMsg.innerHTML+=`<div class="cc-user">${t}</div>`;
+  ccInput.value="";
+  setTimeout(()=>ccMsg.innerHTML+=`<div class="cc-bot">Thanks! We will assist you shortly.</div>`,700);
+}
+</script>
+
+</body>  
 </html>
