@@ -444,74 +444,84 @@
 </div>
 
 <style>
-#ai-chatbox{
+<!-- FREE AI CHATBOT -->
+<div id="free-ai">
+  <div id="free-ai-header">💬 ComptCare Support</div>
+  <div id="free-ai-msg"></div>
+  <input id="free-ai-input" placeholder="Ask about services, contact..." />
+</div>
+
+<style>
+#free-ai{
   position:fixed;
   bottom:20px;
   right:20px;
-  width:320px;
-  height:420px;
+  width:300px;
+  height:380px;
   background:#fff;
   border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
   display:flex;
   flex-direction:column;
   z-index:9999;
-  font-family:Roboto,sans-serif;
 }
-#ai-header{
+#free-ai-header{
   background:#0056b3;
   color:#fff;
-  padding:12px;
-  font-weight:700;
+  padding:10px;
   text-align:center;
-  border-radius:12px 12px 0 0;
+  font-weight:bold;
 }
-#ai-messages{
+#free-ai-msg{
   flex:1;
   padding:10px;
   overflow-y:auto;
   font-size:14px;
 }
-.ai-user{
-  text-align:right;
-  color:#0056b3;
-  margin:6px 0;
-}
-.ai-bot{
-  text-align:left;
-  color:#198754;
-  margin:6px 0;
-}
-#ai-input{
+.free-user{color:#0056b3;text-align:right;margin:5px}
+.free-bot{color:#198754;text-align:left;margin:5px}
+#free-ai-input{
   border:none;
   border-top:1px solid #ddd;
-  padding:12px;
-  outline:none;
+  padding:10px;
 }
 </style>
 
 <script>
-const aiInput = document.getElementById("ai-input");
-const aiMessages = document.getElementById("ai-messages");
+const input = document.getElementById("free-ai-input");
+const box = document.getElementById("free-ai-msg");
 
-aiInput.addEventListener("keypress", async (e) => {
-  if (e.key === "Enter" && aiInput.value.trim()) {
-    const text = aiInput.value;
-    aiMessages.innerHTML += `<div class="ai-user">${text}</div>`;
-    aiInput.value = "";
+function reply(msg){
+  box.innerHTML += `<div class="free-bot">${msg}</div>`;
+  box.scrollTop = box.scrollHeight;
+}
 
-    const res = await fetch("/chat", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ message: text })
-    });
+input.addEventListener("keypress", function(e){
+  if(e.key==="Enter" && input.value.trim()){
+    let q = input.value.toLowerCase();
+    box.innerHTML += `<div class="free-user">${input.value}</div>`;
+    input.value="";
 
-    const data = await res.json();
-    aiMessages.innerHTML += `<div class="ai-bot">${data.reply}</div>`;
-    aiMessages.scrollTop = aiMessages.scrollHeight;
+    if(q.includes("service")){
+      reply("🛠️ We provide IT support, networking, cloud, security & helpdesk services.");
+    }
+    else if(q.includes("contact") || q.includes("phone")){
+      reply("📞 Call us: +91 9624839901<br>📧 Email: comptcare0@gmail.com");
+    }
+    else if(q.includes("about")){
+      reply("ℹ️ ComptCare is founded by Maharshi Shah, providing trusted IT solutions.");
+    }
+    else if(q.includes("price") || q.includes("cost")){
+      reply("💰 Pricing depends on your requirement. Please contact us for details.");
+    }
+    else{
+      reply("🤖 Thank you! Our team will contact you soon. You can also use the contact form below.");
+    }
   }
 });
+
       </script>
 </body>
 </html>
+
 
