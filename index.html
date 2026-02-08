@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ComptCare</title>
+<title>ComptCare Chatbot</title>
 
 <style>
 body{
-  font-family: Arial, sans-serif;
   margin:0;
+  font-family: Arial, sans-serif;
   background:#f4f6f8;
 }
 
@@ -27,6 +27,7 @@ body{
   align-items:center;
   justify-content:center;
   cursor:pointer;
+  z-index:999;
 }
 
 /* CHAT BOX */
@@ -41,8 +42,10 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,.3);
   display:none;
   flex-direction:column;
+  z-index:999;
 }
 
+/* HEADER */
 .chat-header{
   background:#0056b3;
   color:#fff;
@@ -50,8 +53,10 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  font-weight:bold;
 }
 
+/* MESSAGES */
 #chat-messages{
   flex:1;
   padding:10px;
@@ -77,6 +82,7 @@ body{
   margin:6px 0;
 }
 
+/* INPUT */
 .chat-input{
   display:flex;
   border-top:1px solid #ddd;
@@ -133,7 +139,7 @@ function closeChat(){
   box.style.display = "none";
 }
 
-/* TIME GREETING – FIXED */
+/* TIME GREETING */
 function timeGreeting(){
   const h = new Date().getHours();
   if(h >= 5 && h < 12) return "Good Morning ☀️";
@@ -144,8 +150,9 @@ function timeGreeting(){
 
 /* WELCOME MESSAGE */
 function welcomeMsg(){
-  msg.innerHTML += `<div class="bot-msg">
-    ${timeGreeting()}! 👋<br>
+  msg.innerHTML += `
+  <div class="bot-msg">
+    ${timeGreeting()} 👋<br>
     Welcome to <b>ComptCare</b>.<br>
     Please describe your problem or type <b>contact</b>.
   </div>`;
@@ -180,13 +187,13 @@ function sendMsg(){
       botReply("📞 Phone: +91 9624839901<br>📧 Email: comptcare0@gmail.com");
     }
     else if(q.includes("service")){
-      botReply("🛠️ We provide IT support, cloud services, security & helpdesk. What issue are you facing?");
+      botReply("🛠️ We provide IT support, cloud solutions, security & helpdesk. What issue are you facing?");
     }
     else if(q.includes("hello") || q.includes("hi")){
-      botReply(timeGreeting() + "! 😊 How can I help you?");
+      botReply(timeGreeting() + " 😊 How can I help you?");
     }
     else{
-      botReply("🧠 Thanks for explaining. Can you share more details about your problem?");
+      botReply("🧠 Thank you for the details. Can you please explain your problem a little more?");
     }
   }, 1200);
 }
