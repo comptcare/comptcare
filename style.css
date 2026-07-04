@@ -364,25 +364,23 @@ footer p{
     position:fixed;
     right:15px;
     bottom:15px;
-    width:45px;
-    height:45px;
+    width:42px;
+    height:42px;
     background:#25D366;
+    color:#fff;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    box-shadow:0 4px 12px rgba(0,0,0,.3);
+    text-decoration:none;
+    font-size:18px;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+    transition:.3s;
     z-index:9999;
-    transition:0.3s;
-}
-
-.whatsapp img{
-    width:24px;
-    height:24px;
 }
 
 .whatsapp:hover{
-    transform:scale(1.1);
+    transform:scale(1.08);
 }
 
 /* ===========================
