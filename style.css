@@ -56,6 +56,17 @@ body{
     transition:.4s;
 }
 
+.navbar.scrolled{
+    background:rgba(8,17,31,0.95);
+    backdrop-filter:blur(18px);
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+    padding:12px 8%;
+}
+
+.navbar.scrolled .logo img{
+    height:52px;
+}
+
 .logo img{
     height:60px;
     transition:.4s;
