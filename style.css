@@ -33,13 +33,16 @@ body{
     z-index:999;
 }
 
-.logo img{
-    width:170px;
+.logo{
+    display:flex;
+    align-items:center;
 }
 
-.nav-links{
-    display:flex;
-    list-style:none;
+.logo img{
+    height:65px;
+    width:auto;
+    display:block;
+    object-fit:contain;
 }
 
 .nav-links li{
