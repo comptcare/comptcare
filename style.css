@@ -593,107 +593,213 @@ footer p{
    MOBILE RESPONSIVE
 =========================== */
 
-@media(max-width:992px){
+@media (max-width: 992px){
 
-.hero-content h1{
-    font-size:48px;
-}
+    .hero-content{
+        max-width:90%;
+    }
 
-.hero-content p{
-    font-size:18px;
-}
+    .hero-content h1{
+        font-size:48px;
+    }
 
-}
+    .hero-content p{
+        font-size:18px;
+    }
 
-@media(max-width:768px){
-
-.navbar{
-    flex-direction:column;
-    padding:15px;
-}
-
-.logo{
-    margin-bottom:10px;
-}
-
-.logo img{
-    height:50px;
-}
-
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.nav-links li{
-    margin:10px;
-}
-
-.hero{
-    height:85vh;
-}
-
-.hero-content h1{
-    font-size:34px;
-}
-
-.hero-content p{
-    font-size:16px;
-}
-
-section{
-    padding:70px 6%;
-}
-
-section h2{
-    font-size:30px;
-}
-
-.page-banner{
-    height:250px;
-}
-
-.page-banner h1{
-    font-size:36px;
-}
-
-.page-banner p{
-    font-size:16px;
-}
-
-.contact-home{
-    margin:40px 5%;
-    padding:50px 20px;
-}
-
-.whatsapp{
-    width:50px;
-    height:50px;
-    font-size:24px;
-    right:15px;
-    bottom:15px;
-}
+    .service-box{
+        grid-template-columns:repeat(2,1fr);
+    }
 
 }
 
-@media(max-width:480px){
+@media (max-width:768px){
 
-.hero-content h1{
-    font-size:28px;
+    /* Navbar */
+
+    .navbar{
+        flex-direction:column;
+        align-items:center;
+        padding:15px;
+    }
+
+    .logo{
+        margin-bottom:10px;
+    }
+
+    .logo img{
+        height:50px;
+    }
+
+    .nav-links{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:15px;
+        padding:0;
+    }
+
+    .nav-links li{
+        margin:0;
+    }
+
+    .nav-links a{
+        font-size:15px;
+    }
+
+    /* Hero */
+
+    .hero{
+        min-height:100vh;
+        height:auto;
+        padding:120px 20px 70px;
+    }
+
+    .hero-content{
+        max-width:100%;
+        padding:10px;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+        line-height:1.3;
+    }
+
+    .hero-content p{
+        font-size:16px;
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+        margin-top:20px;
+    }
+
+    .hero-buttons .btn{
+        width:220px;
+        text-align:center;
+    }
+
+    /* Sections */
+
+    section{
+        padding:70px 20px;
+    }
+
+    section h2{
+        font-size:30px;
+    }
+
+    /* About */
+
+    .about-home p{
+        max-width:100%;
+        font-size:16px;
+        line-height:1.8;
+    }
+
+    /* Services */
+
+    .service-box{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    /* Contact */
+
+    .contact-home{
+        margin:30px 15px;
+        padding:40px 20px;
+    }
+
+    .contact-info{
+        grid-template-columns:1fr;
+    }
+
+    form{
+        width:100%;
+    }
+
+    form input,
+    form textarea,
+    form button{
+        width:100%;
+    }
+
+    /* Page Banner */
+
+    .page-banner{
+        height:230px;
+    }
+
+    .page-banner h1{
+        font-size:34px;
+    }
+
+    .page-banner p{
+        font-size:16px;
+    }
+
+    /* WhatsApp */
+
+    .whatsapp{
+        width:45px;
+        height:45px;
+        right:15px;
+        bottom:15px;
+    }
+
+    .whatsapp img{
+        width:22px;
+        height:22px;
+    }
+
 }
 
-.hero-content p{
-    font-size:15px;
-}
+@media (max-width:480px){
 
-.btn{
-    padding:12px 25px;
-    font-size:14px;
-}
+    .logo img{
+        height:45px;
+    }
 
-.logo img{
-    height:45px;
-}
+    .hero-content h1{
+        font-size:28px;
+    }
+
+    .hero-content p{
+        font-size:15px;
+    }
+
+    .btn{
+        width:100%;
+        max-width:220px;
+        padding:12px 20px;
+        font-size:14px;
+    }
+
+    .page-banner h1{
+        font-size:28px;
+    }
+
+    section h2{
+        font-size:26px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
 
 }
 /* ===========================
