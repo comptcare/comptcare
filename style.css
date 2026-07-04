@@ -278,19 +278,75 @@ section p{
 =========================== */
 
 .about-home{
-    text-align:center;
+    width:100%;
+    max-width:1200px;
+    margin:60px auto;
+    padding:80px 30px;
     background:#08111f;
+    text-align:center;
 }
 
 .about-home h2{
+    font-size:42px;
+    color:#fff;
     margin-bottom:25px;
 }
 
 .about-home p{
-    max-width:900px;
-    margin:0 auto 35px;
+    max-width:850px;
+    margin:0 auto 30px;
     color:#ddd;
-    font-size:17px;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.about-home .btn{
+    margin-top:15px;
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+.about-home{
+    padding:60px 20px;
+    margin:40px auto;
+}
+
+.about-home h2{
+    font-size:32px;
+}
+
+.about-home p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+.about-home{
+    padding:40px 15px;
+    margin:30px auto;
+}
+
+.about-home h2{
+    font-size:28px;
+}
+
+.about-home p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+.about-home .btn{
+    width:100%;
+    max-width:220px;
+}
+
 }
 
 /* ===========================
