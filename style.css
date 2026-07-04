@@ -364,28 +364,25 @@ footer p{
     position:fixed;
     right:15px;
     bottom:15px;
-    width:42px;
-    height:42px;
+    width:45px;
+    height:45px;
     background:#25D366;
-    color:#fff;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-decoration:none;
-    font-size:18px;
-    box-shadow:0 4px 10px rgba(0,0,0,.25);
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
     z-index:9999;
     transition:0.3s;
 }
 
-.whatsapp:hover{
-    transform:scale(1.08);
-    background:#1EBE5D;
+.whatsapp img{
+    width:24px;
+    height:24px;
 }
+
 .whatsapp:hover{
-    transform:scale(1.12);
-    background:#1EBE5D;
+    transform:scale(1.1);
 }
 
 /* ===========================
