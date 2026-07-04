@@ -1,82 +1,126 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ComptCare | Your Trusted IT Solutions Partner</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#08111f;color:#fff;scroll-behavior:smooth}
-header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#0d6efd,#00c6ff)}
-nav{position:fixed;top:0;width:100%;display:flex;justify-content:center;gap:30px;padding:15px;background:rgba(0,0,0,.4);backdrop-filter:blur(10px)}
-nav a{color:#fff;text-decoration:none}
-h1{font-size:3.5rem}
-.btn{margin-top:25px;background:#fff;color:#0d6efd;padding:14px 28px;border-radius:40px;text-decoration:none;font-weight:bold}
-section{padding:80px 8%}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:rgba(255,255,255,.08);padding:25px;border-radius:18px;backdrop-filter:blur(8px);transition:.3s}
-.card:hover{transform:translateY(-8px)}
-footer{text-align:center;padding:25px;background:#000}
-input,textarea{width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px}
-button{padding:12px 24px;background:#0d6efd;color:#fff;border:none;border-radius:8px}
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:24px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComptCare | Your Trusted IT Partner</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
 
-<header id="home">
-<h1>ComptCare</h1>
-<p>Your Trusted IT Support Partner</p>
-<a class="btn" href="#contact">Get Support</a>
-</header>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
 
-<section id="services">
-<h2>Our Services</h2><br>
-<div class="cards">
-<div class="card"><h3>🛠 Managed IT</h3><p>24/7 Monitoring, Updates, Hardware Support.</p></div>
-<div class="card"><h3>🔐 Cyber Security</h3><p>Firewall, Endpoint Protection & Security.</p></div>
-<div class="card"><h3>☁ Cloud Solutions</h3><p>Migration, Backup & Microsoft 365.</p></div>
-<div class="card"><h3>🎧 Helpdesk</h3><p>Fast Remote & Onsite Support.</p></div>
-</div>
-</section>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="ComptCare Logo">
+            </a>
 
-<section id="about">
-<h2>About ComptCare</h2>
-<p>Founded by Maharshi Shah in 2025, ComptCare delivers reliable IT solutions with a customer-first approach.</p>
-<br>
-<h2>Mission</h2>
-<p>Empowering businesses through secure, innovative and dependable IT services.</p>
-</section>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
 
-<section>
-<h2>Testimonials</h2>
-<div class="cards">
-<div class="card">⭐⭐⭐⭐⭐<br>"Excellent network setup!"<br><b>- Priya Mehta</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>"Reliable IT Partner."<br><b>- Raj Patel</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>"Quick laptop repair."<br><b>- Anjali Desai</b></div>
-</div>
-</section>
+        </nav>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<p>📞 +91 9624839901<br>📧 comptcare0@gmail.com</p><br>
-<form>
-<input placeholder="Your Name">
-<input placeholder="Email">
-<textarea rows="5" placeholder="Message"></textarea>
-<button>Send Message</button>
-</form>
-</section>
+        <!-- Hero Section -->
+        <section class="hero">
 
-<footer>© 2025 ComptCare | Designed by ComptCare</footer>
-<a class="whatsapp" href="https://wa.me/919624839901">💬</a>
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+                <h1>Welcome to ComptCare</h1>
+
+                <p>
+                    Professional IT Solutions, Computer Repair,
+                    Networking, CCTV, Cloud & Technical Support.
+                </p>
+
+                <a href="service.html" class="btn">
+                    Explore Services
+                </a>
+
+            </div>
+
+        </section>
+
+    </header>
+
+    <!-- Services Preview -->
+
+    <section class="services">
+
+        <h2>Our Services</h2>
+
+        <div class="service-box">
+
+            <div class="card">
+                <h3>Computer Repair</h3>
+                <p>Desktop & Laptop Hardware and Software Support.</p>
+            </div>
+
+            <div class="card">
+                <h3>Networking</h3>
+                <p>LAN, Wi-Fi, Router & Server Configuration.</p>
+            </div>
+
+            <div class="card">
+                <h3>CCTV Installation</h3>
+                <p>Security Camera Installation & Maintenance.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cloud Solutions</h3>
+                <p>Backup, Microsoft 365 & Remote Support.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About Preview -->
+
+    <section class="about-home">
+
+        <h2>Why ComptCare?</h2>
+
+        <p>
+            ComptCare provides reliable, affordable and secure IT
+            solutions for individuals, businesses and organizations.
+            We focus on quality service, customer satisfaction and
+            long-term support.
+        </p>
+
+        <a href="about.html" class="btn">Read More</a>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section class="contact-home">
+
+        <h2>Need IT Support?</h2>
+
+        <p>We're ready to help your business grow.</p>
+
+        <a href="contact.html" class="btn">
+            Contact Us
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2025 ComptCare. All Rights Reserved.
+        </p>
+
+    </footer>
+
 </body>
 </html>
