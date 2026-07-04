@@ -108,7 +108,7 @@ body{
    HERO SECTION
 =========================== */
 
-..hero{
+.hero{
     min-height:100vh;
     background:url("it-background.jpg") center center/cover no-repeat;
     display:flex;
